@@ -30,7 +30,7 @@ class MineQueryRemastered {
 	}
 
 	function playerHead($player, $size, $helm) {
-		$constructor = '<img src=https://mcapi.ca/avater/'.$player.'/'.$size.'/'.$helm.'>';
+		$constructor = '<img src=https://mcapi.ca/avatar/'.$player.'/'.$size.'/'.$helm.'>';
 		return $constructor; 
 	}
 
@@ -43,7 +43,7 @@ class MineQueryRemastered {
 		return $json['minecraft.net']['status'];	
 	}
 
-	function statusSessions() {
+	function statusMinecraftSessions() {
 		$constructor = 'https://mcapi.ca/mcstatus';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
@@ -64,7 +64,7 @@ class MineQueryRemastered {
 		return $json['authserver.mojang.com']['status'];	
 	}
 
-	function statusSession() {
+	function statusMojangSession() {
 		$constructor = 'https://mcapi.ca/mcstatus';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
