@@ -68,7 +68,7 @@ class MineQueryRemastered {
 		$constructor = 'https://mcapi.ca/mcstatus';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
-		return $json['sessionserver.mojang.net']['status'];	
+		return $json['sessionserver.mojang.com']['status'];	
 	}
 
 	function statusAPI() {
