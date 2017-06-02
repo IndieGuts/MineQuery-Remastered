@@ -7,7 +7,7 @@ You'll need to download the core.minequery-remastered.php file, and upload it in
 
 ** "How can I load the core?" **
 Place this PHP snippet into your content where you wish to place the server information
-```
+```PHP
 <?php // Load MineQuery - Remastered Core
 	require('path/to/core.minequery-remastered.php');
 	$minequery = new MineQueryRemastered;
