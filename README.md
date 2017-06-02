@@ -1,15 +1,19 @@
 Reminders:
+[x] - Add basic examples
 [ ] - Complete the ReadMe
-[ ] - 
 
 Feature Requests:
+
 [x] - Examples
+
 [ ] - Example Project Page - Currently being created by Andrewboy159
 
 Donators:
+
 [ ] - Currently none
 
 Servers using MineQuery:
+
 [ ] - Currently none
 
 
