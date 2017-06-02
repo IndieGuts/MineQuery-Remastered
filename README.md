@@ -1,3 +1,15 @@
+Reminders:
+[ ] - Complete the ReadMe
+[ ] - 
+
+Feature Requests:
+[ ] - Currently None
+
+Donators:
+[ ] - Currently none
+
+
+
 # MineQuery-Remastered
 Get the information of a Minecraft server using MineQuery Remastered!
 
