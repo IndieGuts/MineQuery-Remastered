@@ -15,7 +15,7 @@
 *
 */
 
-class MineQuery {
+class MineQueryRemastered {
 
 	// Player Skin & Head Features
 
@@ -97,47 +97,47 @@ class MineQuery {
 
 	// Minecraft Server Features:
 
-	function favicon($server) { // Responds with the servers favicon (Server Icon)
+	function favicon($server) {
 		$constructor = '<img src=https://mcapi.ca/query/'.$server.'/icon>';
 		return $constructor; 
 	}
 
 
-	function status($server) { // Responds with the servers status (True/False)
+	function status($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/status';
 		$json = json_decode(file_get_contents($constructor), true);
 		return $json['status'];
 	}
 
-	function ping($server) { // Responds with the users ping to the server
+	function ping($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/status';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['ping'];
 	}
 
-	function online($server) { // Responds with amount of players connected to server
+	function online($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/players';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['players']['online'];	
 	}
 
-	function maxplayers($server) { // Responds with the maximum amount of players on the server
+	function maxplayers($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/players';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['players']['max'];
 	}
 
-	function version($server) { // Responds with the version(s) of the server
+	function version($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['version'];
 	}
 
-	function protocol($server) { // Responds with the protocol of the server
+	function protocol($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
@@ -145,7 +145,7 @@ class MineQuery {
 	}
 
 
-	function motd($server, $raw) { // Responds with the servers MOTD. (Use false to use html colors, true to get & symbols)
+	function motd($server, $raw) {
 		if ($raw == true) {
 			$constructor = 'https://mcapi.ca/query/'.$server.'/motd';
 			$raw = file_get_contents($constructor);
@@ -159,20 +159,21 @@ class MineQuery {
 		}
 	}
 
-	function port($server) { // Responds with the port of the server
+	function port($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['port'];
 	}
 
-	function hostname($server) { // Responds with the port of the server
+	function hostname($server) {
 		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['hostname'];
 	}
 
+	// Query Features: (The server query must be enabled on the targed server to work)
 	// enable-query must be set to true in the requested server's server.properties file for this API to work
 
 	function map($server) {
@@ -196,7 +197,7 @@ class MineQuery {
 		return $json['software'];
 	}
 
-	// BuyCraft API Block
+	// BuyCraft API Features:
 	function bc_payments($key) {
 		$constructor = 'https://mcapi.ca/buycraft/'.$key.'/payments';
 		$raw = file_get_contents($constructor);
@@ -225,13 +226,12 @@ class MineQuery {
 			"server_store_url" => $json['payload']['serverStore'],
 			"username_update_interval" => $json['payload']['updateUsernameInterval'],
 			"server_online_mode" => $json['payload']['onlineMode']
-		);
+			);
 
 		return $array;
 	}
-	// BuyCraft API Block END
 
-	// MinecraftMarket API Block
+	// MinecraftMarket API Features:
 	function mm_payments($key) {
 		$constructor = 'https://mcapi.ca/minecraftmarket/'.$key.'/payments';
 		$raw = file_get_contents($constructor);
@@ -245,15 +245,13 @@ class MineQuery {
 		$json = json_decode($raw, true);
 		return $json;
 	}
-	// MinecraftMarket API Block END
 
-	// Blocked Servers Block
+	// Mojang Blacklisted Servers Features:
 	function blockedservers() {
 		$constructor = 'https://mcapi.ca/blockedservers';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json;		
 	}
-	// Blocked Servers Block END
 
 }
