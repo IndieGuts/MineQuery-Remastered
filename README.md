@@ -1,5 +1,7 @@
 Reminders:
+
 [x] - Add basic examples
+
 [ ] - Complete the ReadMe
 
 Feature Requests:
