@@ -107,9 +107,10 @@ Use this to get the status of a server! Simply specify a server domain or IP!
 ** Ping **
 
 Use this to get the viewers ping to the server! Simply specify a server domain or IP!
+ » Will return the viewers ping to the destination
 ```PHP
 <?=$minequery::ping("play.indieguts.com"); ?>
-``` » Will return the viewers ping to the destination
+```
 
 ** Online **
 
@@ -128,9 +129,10 @@ Use this to get the max players limit on a server! Simply specify a server domai
 ** Version **
 
 Returns the server version! Simply specify a server domain or IP!
+ » May also specify multiple versions if supported
 ```PHP
-<?=$minequery::version("play.indieguts.com"); ?>PHP
-``` » May also specify multiple versions if supported
+<?=$minequery::version("play.indieguts.com"); ?>
+```
 
 ** Protocol **
 
