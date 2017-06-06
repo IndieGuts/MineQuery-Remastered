@@ -3,8 +3,8 @@
 * @package    MineQuery (Remastered)
 * @author     IndieGuts (Remastered), vexsoftware (Original) 
 * @license    GNU General Public License v3.0
-* @version    1.0
-* @link       http://pear.php.net/package/PackageName
+* @version    1.3.0
+* @link       https://github.com/IndieGuts/MineQuery-Remastered/edit/master/core.minequery-remastered.php
 *
 * MineQuery (Remastered) created by IndieGuts, as the original was obsolete
 * Authors » IndieGuts (Remastered), vexsoftware (Original)
@@ -91,7 +91,7 @@ class MineQueryRemastered {
 		$constructor = 'https://mcapi.ca/isup/'.$domain;
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
-		return $json['status'];	
+		return $json['status'];
 	}
 
 
@@ -104,13 +104,13 @@ class MineQueryRemastered {
 
 
 	function status($server) {
-		$constructor = 'https://mcapi.ca/query/'.$server.'/status';
+		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$json = json_decode(file_get_contents($constructor), true);
-		return $json['status'];
+		return $json['status'] ? 'Online' : 'Offline';
 	}
 
 	function ping($server) {
-		$constructor = 'https://mcapi.ca/query/'.$server.'/status';
+		$constructor = 'https://mcapi.ca/query/'.$server.'/info';
 		$raw = file_get_contents($constructor);
 		$json = json_decode($raw, true);
 		return $json['ping'];
@@ -155,7 +155,7 @@ class MineQueryRemastered {
 			$constructor = 'https://mcapi.ca/query/'.$server.'/motd';
 			$raw = file_get_contents($constructor);
 			$json = json_decode($raw, true);
-			return $json['htmlmotd'];
+			return $json['htmlmotd'] ? $json['htmlmotd'] : 'ERROR: Error processing MOTD';
 		}
 	}
 
